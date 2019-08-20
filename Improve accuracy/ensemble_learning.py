@@ -183,24 +183,18 @@ def train_lstm(batch_size=80,time_step=15,train_begin=0,train_end=1000):
         print('Athenry Road: LSTM accuracy is :',real)
     return test_predict  
 test_predict = train_lstm(batch_size=80,time_step=15,train_begin=0,train_end=1625)
-
-
-
-
+# use knn model to makae prediction, n_dots can be changed according to different datasets
 n_dots = 1598
 label = data_lough["Total"].astype(np.float64)
 data = data_lough.drop('Total',1)
 X_train, X_test, y_train, y_test = train_test_split(data, label, test_size=0.2,random_state = 0)
-
-# #add noise
+# #add noise to y value
 y_train += 0.1 * np.random.rand(n_dots) - 0.1
- 
 # #KNN Regression
 k = 20
 knn = KNeighborsRegressor(k)
 knn.fit(X_train,y_train)
 prec = knn.score(X_train, y_train)
-
 y_pred = knn.predict(X_test)
 r = accuracy_knn(y_pred[0:360],y_test[0:360].tolist())
 print('the accuracy of Athenry road in KNN model is :',r)
