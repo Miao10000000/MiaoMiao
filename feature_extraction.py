@@ -142,28 +142,3 @@ data_lough['Summer/winter_holiday'] = data_lough.apply(lambda x: function_Summer
 data_lough['Halloween'] = data_lough.apply(lambda x: function_Halloween(x), axis = 1)
 data_lough['Patrick'] = data_lough.apply(lambda x: function_Patrick(x), axis = 1)
 data_lough['Total'] = data_lough['Total'].astype(np.float64)
-label = data_lough["Total"].astype(np.float64)
-data = data_lough.drop('Total',1)
-X_train, X_test, y_train, y_test = train_test_split(data, label, test_size=0.2,random_state = 0)
-# ------------------------------------------------------------------------------
-# Training linear regression model
-model2 = linear_model.LinearRegression()
-model2.fit (X_train,y_train)
-predict = model2.predict(X_test)
-d = accuracy_lr(y_test.reset_index(drop=True),predict)
-print("Athenry Road: Linear refression accuracy is ",d)
-final_data = X_test.copy()
-final_data["Predict"] = predict
-final_data["Actual"] = y_test
-final_data["Date"] = DataFrame(pd.to_datetime(X_test["Day"]))
-# -------------------------------------------------------------------------------
-#  Ploting the the result, yellow points are actual value, blue points are predict value, red line is the best linear line.
-x = final_data["Date"]
-y = final_data["Predict"]
-y1=final_data["Actual"]
-plt.title("predict value vs actual value")
-plt.plot(x, y,'.', label = 'predict value')
-plt.plot(x, y1,'.',label = 'acutal data')
-plt.plot(x, y, linewidth = '0.1', label = "best line", color='red', linestyle=':')
-plt.plot(x, y, '-',color = 'grey', label  = 'best line')
-plt.legend(loc = 2)
