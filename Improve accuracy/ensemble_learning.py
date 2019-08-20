@@ -7,11 +7,10 @@ Original file is located at
     https://colab.research.google.com/drive/1DiCjRtliBM-Qge1J8Xiw_Lpxm45SGAND
 """
 
-# Commented out IPython magic to ensure Python compatibility.
 # This part is combining two models together to improve accuracy
 # 1) Train LSTM model after feature selection, therefore, using 10 features to train the LSTM model
 # 2) Train KNN model use the same dataset as before to train KNN model since features don't influence KNN model a lot.
-# 3) Making prediction by averaging outputs of two models
+# 3) Making prediction by averaging outputs of two models, use "vote_average" to get final output
 # 4) Plot the predicted value and actual value 
 
 
@@ -24,7 +23,7 @@ import tensorflow as tf
 from sklearn.metrics import mean_absolute_error,mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
-# % matplotlib inline
+% matplotlib inline
 import warnings 
 warnings.filterwarnings('ignore')
 from google.colab import drive
@@ -112,7 +111,7 @@ def lstm(X):
     biases_out=biases['out']
     pred=tf.matmul(output_reshaped,weights_out)+biases_out
     return pred,states_final
-
+# calculate the accuracy of KNN model
 def accuracy_knn(predict,test):
     total = 0
     for i in range(len(predict)):
@@ -124,7 +123,7 @@ def accuracy_knn(predict,test):
     accuracy = total / len(predict)
     return accuracy        
 
-  
+#  calculate the average value of two models, the output is the predict value of ensemble learning model
 def vote_average(test_predict,y_pred):
     average_value = []
     for i in range(len(test_predict)):
