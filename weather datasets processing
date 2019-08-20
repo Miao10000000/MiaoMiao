@@ -1,3 +1,12 @@
+# This file is used to process weather datasets, it including:
+
+# 1) Extracting useful information from original datasets
+# 2) Selecting meaningful columns as useful features
+# 3) Filtering out outliers
+# 4) Visualizing comparison before and after filtering abnormal values
+
+
+
 from sklearn.metrics import confusion_matrix
 from pandas import Series,DataFrame
 from sklearn.metrics import mean_squared_error
