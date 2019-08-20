@@ -8,6 +8,8 @@ Original file is located at
 """
 
 # Use support vector regression (SVR) model to make prediction
+# Use "accuracy_svr" to calculate the accuracy
+# plot the predicted value and actual value
 from sklearn.svm import SVR
 import numpy as np
 # split datasets into 80% training and 20% testing 
