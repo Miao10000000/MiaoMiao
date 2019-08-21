@@ -40,19 +40,19 @@ All the datasets in this work are in "datasets" file.
 "Accuracy comparison" is the datasets that comparing dropping features
 
 ## References
-[1]. https://www.cnblogs.com/tszr/p/10794788.html
+[1]. KNN: https://www.cnblogs.com/tszr/p/10794788.html
 
-[2]. https://blog.csdn.net/weixin_39175124/article/details/79465558
+[2]. Linear regression: https://blog.csdn.net/weixin_39175124/article/details/79465558
 
-[3]. https://blog.csdn.net/qq_29296685/article/details/83793678
+[3]. LSTM: https://blog.csdn.net/qq_29296685/article/details/83793678
 
-[4]. http://blog.itpub.net/31509949/viewspace-2213894/
+[4]. LSTM: http://blog.itpub.net/31509949/viewspace-2213894/
 
-[5]. https://www.cnblogs.com/Lin-Yi/p/8971845.html
+[5]. SVR: https://www.cnblogs.com/Lin-Yi/p/8971845.html
 
-[6]. https://blog.csdn.net/u011437229/article/details/53465086
+[6]. Transfer learning: https://blog.csdn.net/u011437229/article/details/53465086
 
-[7]. https://github.com/WillKoehrsen/feature-selector/tree/master/feature_selector
+[7]. feature selector: https://github.com/WillKoehrsen/feature-selector/tree/master/feature_selector
 
-[8]. https://zhuanlan.zhihu.com/p/49479702
+[8]. feature selector: https://zhuanlan.zhihu.com/p/49479702
 
