@@ -5,7 +5,8 @@ This part is processing passenger flow datasets and weather datasets. First, pro
 ![](images/1.png)
 ## 2.Training five models
 #### Code is in "five models" file
-This part is machine learning algorithms, contains five models (KNN, SVR, Linear regression, LSTM, transfer learning). Use the dataset of Athenry road to train these five models. After that testing the prediction accuracy. Finally, choosingg the models that are suitable for predicting passenger flow in Galway. The result shows KNN and LSTM model are more suitable than other models.
+This part is machine learning algorithms, contains five models (KNN, SVR, Linear regression, LSTM, transfer learning). Use the dataset of Athenry road to train these five models. After that testing the prediction accuracy. Finally, choosingg the models that are suitable for predicting passenger flow in Galway. The result shows KNN and LSTM model are more suitable than other models.As below
+![](images/10.png)
 
 ## 3.Feature visualization
 ### 1. Feature correlation analysis
