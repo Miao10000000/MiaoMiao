@@ -41,11 +41,18 @@ All the datasets in this work are in "datasets" file.
 
 ## References
 [1]. https://www.cnblogs.com/tszr/p/10794788.html
+
 [2]. https://blog.csdn.net/weixin_39175124/article/details/79465558
+
 [3]. https://blog.csdn.net/qq_29296685/article/details/83793678
+
 [4]. http://blog.itpub.net/31509949/viewspace-2213894/
+
 [5]. https://www.cnblogs.com/Lin-Yi/p/8971845.html
+
 [6]. https://blog.csdn.net/u011437229/article/details/53465086
+
 [7]. https://github.com/WillKoehrsen/feature-selector/tree/master/feature_selector
+
 [8]. https://zhuanlan.zhihu.com/p/49479702
 
