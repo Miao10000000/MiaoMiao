@@ -8,9 +8,16 @@ Original file is located at
 """
 
 # Use KNN regression model to predict passenger flow
+# 1) split datasets into 80% training and 20% testing
+# 2) calculate accuracy by using "accuracy_knn" function
+# 3）plot predicted value and actual value
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsRegressor
+
+# calculate the accuracy, if the actual value smaller than predict value then use actual value / predict value
+#  if the predict value is smaller than actual value then use predict value / actual value
+#  finally, calculate the average of the accuracy
 def accuracy_knn(predict,test):
     total = 0
     for i in range(len(predict)):
