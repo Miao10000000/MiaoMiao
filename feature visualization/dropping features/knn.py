@@ -12,7 +12,6 @@ Original file is located at
 # 2) Dropping features in pair, according to correlation. For example, week has strong relationship with season. Therefore, dropping these two features together
 # 3) Saving the predicted value into a table
 # 4) Calculate the accuracy of dropping features
-# 5) This part contains five models (Linear regression, KNN, SVR, LSTM, transfer learning), I put the functions of these five models together.
 
 # 2. KNN model, dropping each feature individually
 list_a = ["Day","dayofmonth",'dayofweek','week','month','year','season','dayofyear','Easter','Christmas','Summer/winter_holiday','Halloween','Patrick',"maxtp","mintp","rain","cbl","wdsp"]
