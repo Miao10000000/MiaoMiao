@@ -10,7 +10,7 @@ Training five models and testing the accuracy. Chosingg the models that are suit
 ## 3.Feature visualization
 ### 1. Feature correlation analysis
 #### Code is in "feature correlation analysis.py"
-This part focus on analyzing features and visualizing the relationship between features. It including feature importance, feature correlation, etc.
+This part focus on analyzing features and visualizing the relationship between features. It including feature importance, feature correlation, etc. It is really useful for feature selection, some pictured are as below.
 
 ![](images/2.png)
 ### 2. Dropping features
