@@ -11,4 +11,5 @@ This part focus on analyzing features and visualizing the relationship between f
 ### 1. Dropping features
 #### Code is in "dropping features" file
 This part is dropping features based on previous analysis. Then predicting the passenger flow in Galway. Finally, Caluculate the accuracy and visualizing the predicted accuracy. 
+
 ![](images/3.png)
