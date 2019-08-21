@@ -16,7 +16,7 @@ This part focus on analyzing features and visualizing the relationship between f
 ![](images/2.png)
 ### 2. Dropping features
 #### Code is in "dropping features.py"
-This part is dropping features based on previous analysis. Then predicting the passenger flow in Galway. Finally, Caluculate the accuracy and visualizing the predicted accuracy. There are five models in this part, they are KNN, LSTM, SVR, Linear regression, transfer learning. However, I only write code for three models (KNN, SVR, Linear regression). Bracuse I manually dropping features in LSTM and transfer learning models.
+This part is dropping features based on previous analysis. Then predicting the passenger flow in Galway. Finally, Caluculate the accuracy and visualizing the predicted accuracy. There are five models in this part, they are KNN, LSTM, SVR, Linear regression, transfer learning. However, I only write code for three models (KNN, SVR, Linear regression). Beacuse I manually dropping features in LSTM and transfer learning models.
 
 ![](images/3.png)
 ## 3.Improve accuracy
