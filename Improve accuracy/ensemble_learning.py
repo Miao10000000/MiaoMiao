@@ -32,7 +32,7 @@ data_lough = data_lough[order]
 data=data_lough.iloc[:,0:13].values 
 lstm_dict = pd.DataFrame({'Acctural_value': data_lough['Total'][0:990]})
 hidden_unit=6     
-#  input features, there are 18 features
+#  input features, there are 10 features
 input_features= 10 
 #  output is one number/ a label
 output_size=1
@@ -54,7 +54,7 @@ def get_data(batch_size=60,time_step=20,train_begin=0,train_end=1000):
 #Scalering the datasets between 1 and 1
     x_scaler=MinMaxScaler(feature_range=(0,1)) 
     y_scaler=MinMaxScaler(feature_range=(0,1))
-# data[:,-1] is training data from column1 to column 18, it contains 18 features
+# data[:,-1] is training data from column1 to column 10, it contains 10 features
 # 1998 is different on different datasets
     dd = np.array(data[:,-1]).reshape(1998 ,1)
 #data[:,:-1] is the label
