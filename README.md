@@ -1,7 +1,7 @@
 # Daily passenger flow prediction in Galway
 ## 1.Dataset processing
 #### Code is in "data process" file
-This part is processing passenger flow datasets and weather datasets. First, processing to tables (passenger flow and weather). Secondly, extracting useful columns and merging two tables together. Finaly, the table is as below.
+This part is processing passenger flow datasets and weather datasets. First, processing two tables (passenger flow and weather). Secondly, extracting useful columns and merging two tables together. Fourthly, feature extraction, for example, “Day” is 2019-08-10, it can be extracted into “year (2019)”, “day(10)”, “month(8)”, “day of week”, “day of month”, “day of year”, “season”, etc. Finaly, meging twp tables to gether according to different day. The table is as below.
 ![](images/1.png)
 ## 2.Training five models
 #### Code is in "five models" file
@@ -10,7 +10,7 @@ Training five models and testing the accuracy. Chosingg the models that are suit
 ## 3.Feature visualization
 ### 1. Feature correlation analysis
 #### Code is in "feature correlation analysis.py"
-This part focus on analyzing features and visualizing the relationship between features. It including feature importance, feature correlation, etc. It is really useful for feature selection, some pictured are as below.
+This part focus on analyzing features and visualizing the relationship between features. It including feature importance, feature correlation, etc. Basically, using the functions in "feature selector.py" file to analyse the relationship between features. It is really useful for feature selection, some pictured are as below.
 
 ![](images/2.png)
 ### 2. Dropping features
