@@ -7,6 +7,7 @@ This part is processing passenger flow datasets and weather datasets. First, pro
 ### 1. Feature correlation analysis
 #### Code is in "feature correlation analysis" file
 This part focus on analyzing features and visualizing the relationship between features. It including feature importance, feature correlation, etc.
+
 ![](images/2.png)
 ### 1. Dropping features
 #### Code is in "dropping features" file
