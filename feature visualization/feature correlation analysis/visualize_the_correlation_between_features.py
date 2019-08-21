@@ -8,6 +8,14 @@ Original file is located at
 """
 
 # refrence: https://zhuanlan.zhihu.com/p/49479702
+# This part is using the functions in "feature selector" file to analyse the correlation between features, it including:
+# 1) Analyzing the relationship between features that stronger than 0.01
+# 2) Visualizing correlation strongger than 0.05
+# 3) Ploting the importance of fatures
+# 4) Visualizing correlation between features and removing ranking list
+
+
+
 # analyse relationship between features, set threshold as 0.01. means visualizing the corelation stronger than 0.01
 import feature_selector
 features = feature_selector.FeatureSelector(data = data_lough.drop('Total',1), labels = data_lough["Total"].astype(np.float64))
@@ -23,7 +31,7 @@ plt.xticks(rotation=45)
 plt.yticks(rotation=10)
 
 
-# list of collinear features to remove, visualize whcih feture can be removed
+# list of collinear features to remove, visualize whcih feture can be removed in ranking 
 collinear_features = features.ops['collinear']
 # dataframe of collinear features
 features.record_collinear.head()
