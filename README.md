@@ -28,4 +28,4 @@ This part is combining two models (KNN and LSTM) together, calculating accuracy 
 ### 2. Splitting datasets
 #### Code is in "splitting_dataset_into_weekday_and_weekend.py" 
 This part is splitting datasets into weekday and weekend, using KNN model to predicting the passenger flow on weekday and LSTM model to predict passenger flow on weekend.
-![](images/6.png)
+![](images/4.png)
