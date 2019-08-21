@@ -13,7 +13,7 @@ Training five models and testing the accuracy. Chosingg the models that are suit
 This part focus on analyzing features and visualizing the relationship between features. It including feature importance, feature correlation, etc.
 
 ![](images/2.png)
-### 1. Dropping features
+### 2. Dropping features
 #### Code is in "dropping features.py"
 This part is dropping features based on previous analysis. Then predicting the passenger flow in Galway. Finally, Caluculate the accuracy and visualizing the predicted accuracy. 
 
