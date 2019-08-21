@@ -88,7 +88,24 @@ def get_data(batch_size=60,time_step=20,train_begin=0,train_end=1000):
     test_x.append((test_data_normalized[(i+1)*time_step:,:10]).tolist())
     test_y.extend((label_test[(i+1)*time_step:]).tolist()) 
     return batch_list_index,train_x,train_y,test_x,test_y,y_scaler
- 
+#  calculate the average value of two models, the output is the predict value of ensemble learning model
+def vote_average(test_predict,y_pred):
+    average_value = []
+    for i in range(len(test_predict)):
+        average = (test_predict[i]*0.5+ y_pred[i]*0.5)
+        average_value.append(average)
+    return average_value
+#  calculate the accuracy of KNN model
+def tt_accuracy(predict,test):
+    total = 0
+    for i in range(len(predict)):
+        if abs(test[i]) <= abs(predict[i]):
+           a = abs(test[i]) / abs(predict[i])
+        else:
+            a =  abs(predict[i]) / abs(test[i]) 
+        total += a
+    accuracy = total / len(predict)
+    return accuracy
 # build lstm model
 def lstm(X):  
     batch_size=tf.shape(X)[0]
@@ -123,24 +140,7 @@ def accuracy_knn(predict,test):
     accuracy = total / len(predict)
     return accuracy        
 
-#  calculate the average value of two models, the output is the predict value of ensemble learning model
-def vote_average(test_predict,y_pred):
-    average_value = []
-    for i in range(len(test_predict)):
-        average = (test_predict[i]*0.5+ y_pred[i]*0.5)
-        average_value.append(average)
-    return average_value
-  
-def tt_accuracy(predict,test):
-    total = 0
-    for i in range(len(predict)):
-        if abs(test[i]) <= abs(predict[i]):
-           a = abs(test[i]) / abs(predict[i])
-        else:
-            a =  abs(predict[i]) / abs(test[i]) 
-        total += a
-    accuracy = total / len(predict)
-    return accuracy
+
   
 def train_lstm(batch_size=80,time_step=15,train_begin=0,train_end=1000):
     X=tf.placeholder(tf.float32, shape=[None,time_step,input_features])
@@ -189,8 +189,8 @@ data = data_lough.drop('Total',1)
 X_train, X_test, y_train, y_test = train_test_split(data, label, test_size=0.2,random_state = 0)
 # #add noise to y value
 y_train += 0.1 * np.random.rand(n_dots) - 0.1
-# #KNN Regression
-k = 20
+#KNN Regression, set k is 5 which means avergae 5 cloest neigbours' value
+k = 5
 knn = KNeighborsRegressor(k)
 knn.fit(X_train,y_train)
 prec = knn.score(X_train, y_train)
@@ -200,6 +200,7 @@ print('the accuracy of Athenry road in KNN model is :',r)
 vote_value = vote_average(test_predict,y_pred[0:360])
 cc = tt_accuracy(vote_value,y_test[0:360].tolist())
 print('the accuracy of Athenry road in combination model is :',"0.8916832")
+# plot predict value and actual value, visualize weekday and weekend separately
 axia = [i for i in range(1,361)]
 plt.plot(axia,y_test[0:360].tolist(), c='green', label='actual value')
 plt.plot(axia,vote_value, c='red',label='predict value')
