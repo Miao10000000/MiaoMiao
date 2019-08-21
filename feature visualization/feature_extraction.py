@@ -7,11 +7,10 @@ Original file is located at
     https://colab.research.google.com/drive/1DiCjRtliBM-Qge1J8Xiw_Lpxm45SGAND
 """
 
-
-# 2) Extract event information from "Day", for example, "Day" is "2018-06-10", then extract"Year"(2018), "Month"(6), "Day of the month"(10).
-#    Extracting features according to Irish culture
+# 1) This part is feature extraction, it mainly extracts features from "Day"
+# 2) For example, "Day" is "2018-06-10", then extract"Year"(2018), "Month"(6), "Day of the month"(10).Extracting features according to Irish culture
 # 3) The features are ['Day',	'dayofmonth'	,'dayofweek',	'week'	,'month'	,'year'	,'season',	'dayofyear',	'Easter',	'Christmas',	'Summer/winter_holiday'	,'Halloween'	,'Patrick']
-
+# 4) The functions are used to extract features as below.
 from sklearn import metrics
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn import metrics
@@ -48,45 +47,32 @@ from keras.layers.recurrent import LSTM
 from keras.models import Sequential
 
 
-def function_Bank_holiday(x):
-  if x["year"] ==2014: 
-     if (x["dayofmonth"] ==18 and x["month"] ==4) or (x["dayofmonth"] ==5 and x["month"] ==5) or (x["dayofmonth"] ==4 and x["month"] ==8) or(x["dayofmonth"] ==27 and x["month"] ==10):
-        return 1
-     else:
-         return 0
-  elif x["year"] ==2015 :
-       if (x["dayofmonth"] ==4 and x["month"] ==5) or (x["dayofmonth"] ==1 and x["month"] ==6) or (x["dayofmonth"] ==3 and x["month"] ==8) or(x["dayofmonth"] ==26 and x["month"] ==10):
-          return 1
-       else:
-            return 0
-  elif x["year"] ==2016:
-       if (x["dayofmonth"] ==2 and x["month"] ==5) or (x["dayofmonth"] ==6 and x["month"] ==6) or (x["dayofmonth"] ==1 and x["month"] ==8) or(x["dayofmonth"] ==31 and x["month"] ==10):
-          return 1
-       else:
-            return 0
-  else:
-      return 0
-
+# extract "Patrick" from "Day", searched the day of Patrick, then use this method to change the lable.
+# If it is "Patrick" then label is "1", or the label is "0"
 def function_Patrick(x):
   f = [17,18]
   if x["dayofmonth"] in f and x["month"] ==3: 
                      return 1
   else:
        return 0
-
+    
+# extract "Easter" from "Day", searched the day of Easter, then use this method to change the lable.
+# If it is "Easter" then label is "1", or the label is "0"
 def function_Easter(x):
   v = [21,22,23,24,25,26,27,28,29,30]
   if x["dayofmonth"]in v and x["month"] ==4:
                     return 1
   else:
        return 0
-    
+# extract "Halloween" from "Day", searched the day of Halloween, then use this method to change the lable.
+# If it is "Halloween" then label is "1", or the label is "0"   
 def function_Halloween(x):
   if x["dayofmonth"]==31 and x["month"] ==10:
                     return 1
   else:
        return 0
-    
+# extract "Christams" from "Day", searched the day of Christams, then use this method to change the lable.
+# If it is "Christams" then label is "1", or the label is "0"      
 def function_Christams(x):
   v = [25,26,27,28,29,30]
   g = [1,2,3,4,5]
@@ -98,19 +84,8 @@ def function_Christams(x):
                         return 1                
       else:
           return 0 
-
-
-
-def accuracy_lr(predict,test):
-    total = 0
-    for i in range(len(predict)):
-        if abs(test[i]) <= abs(predict[i]):
-           a = abs(test[i]) / abs(predict[i])
-        else:
-            a =  abs(predict[i]) / abs(test[i]) 
-        total += a
-    accuracy = total / len(predict)
-    return accuracy        
+# extract "Summer_winter holiday" from "Day", searched the day of Summer_winter holiday, then use this method to change the lable.
+# If it is "Summer_winter holiday" then label is "1", or the label is "0"      
 def function_Summer_winter(x):
   v = [6,7,8]
   h = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
@@ -125,6 +100,7 @@ def function_Summer_winter(x):
                               return 1
             else:
                  return 0
+# process the dataset, convert them into "float64"
 data_lough['Day']=DataFrame(pd.to_datetime(data_lough['Day']))
 data_lough['dayofmonth']=data_lough['Day'].dt.day.astype(np.float64)
 data_lough['dayofweek']=data_lough['Day'].dt.dayofweek.astype(np.float64)
