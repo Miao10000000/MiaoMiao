@@ -7,13 +7,11 @@ Original file is located at
     https://colab.research.google.com/drive/1DiCjRtliBM-Qge1J8Xiw_Lpxm45SGAND
 """
 
-# 1) This part I decide to use linear regression to analyze the passenger flow in Galway
+
 # 2) Extract event information from "Day", for example, "Day" is "2018-06-10", then extract"Year"(2018), "Month"(6), "Day of the month"(10).
 #    Extracting features according to Irish culture
 # 3) The features are ['Day',	'dayofmonth'	,'dayofweek',	'week'	,'month'	,'year'	,'season',	'dayofyear',	'Easter',	'Christmas',	'Summer/winter_holiday'	,'Halloween'	,'Patrick']
-# 4) Spliting dataset into 80% training set and 20% testing set
-# 5) Calculating predicting accuracy
-# 6) plot the actual value and predicting value
+
 from sklearn import metrics
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn import metrics
