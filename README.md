@@ -35,7 +35,9 @@ This part is splitting datasets into weekday and weekend, using KNN model to pre
 
 ## Datasets
 All the datasets in this work are in "datasets" file. 
-"Raw passenger flow datasets" contains the passenger flow of four roads. "Raw weather dataset" is the original weather dataset. 
+"Raw passenger flow datasets" contains the passenger flow of four roads. 
+"Raw weather dataset" is the original weather dataset.  
+"Pre-processed weather dataset" contains a pre-processed weather dataset that useful columns are extracted.
 "Final dataset" contains four final datasets of four roads after feature extraction.
 "Dropping features datasets" containing the datasets of five models of dropping each features.
 "Accuracy comparison" is the datasets that comparing dropping features
