@@ -1,4 +1,4 @@
-#### ***All files are in google coolab***
+#### ***All files are run in google coolab***
 
 # Daily passenger flow prediction in Galway
 ## 1.Dataset processing
